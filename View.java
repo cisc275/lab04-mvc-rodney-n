@@ -38,7 +38,7 @@ public class View extends JPanel {
 	int column;
 	int x;
 	int y;
-
+	//sets the correct image to the Enum direction
 	public void paint(Graphics g) {
 		picNum = (picNum + 1) % frameCount;
 		
@@ -61,6 +61,7 @@ public class View extends JPanel {
 		g.drawImage(pica[column][picNum+1], x, y, Color.gray, this);
 	}
 	
+	//creates a double array to store the subimages in.
 	public View() {		
 		pica = new BufferedImage[8][11];
 		for (Direction di : Direction.values()) {
@@ -86,6 +87,7 @@ public class View extends JPanel {
 		frame = new JFrame();		
 	}
 	
+	//Turns an image file into a buffered image
 	private BufferedImage createImage(File filo) {
 		BufferedImage bufferedImage;
 		try {
@@ -97,7 +99,7 @@ public class View extends JPanel {
 		return null;
 
 	}
-
+	//repaints the frame with new orc images
 	public void update(int x, int y, Direction direct) {
 		this.x = x;
 		this.y = y;
@@ -117,11 +119,11 @@ public class View extends JPanel {
 		}
 
 	}
-
+	// gets image width
 	public int getImageWidth() {
 		return imgWidth;
 	}
-
+	//gets image heigt
 	public int getImageHeight() {
 		return imgHeight;
 	}
